@@ -9,3 +9,5 @@ books.all()
 
 library_name = "First library"
 Library.objects.get(name=library_name)
+
+Librarian.objects.get(library=library_name)
