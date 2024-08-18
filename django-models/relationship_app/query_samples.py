@@ -1,6 +1,8 @@
 from .models import *
+
 author_name = "Ahmed"
-Author.objects.get(name=author_name)
+author = Author.objects.get(name=author_name)
+Book.objects.filter(author=author)
 
 books = Book.objects
 books.all()
