@@ -9,7 +9,7 @@ class Book(models.Model):
     publication_year = models.IntegerField()
 
 
-class User(AbstractUser):
+class CustomUser(AbstractUser):
     id = models.AutoField(primary_key=True)
     date_of_birth = models.DateField()
     profile_photo = models.ImageField()
