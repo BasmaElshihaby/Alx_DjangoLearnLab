@@ -1,4 +1,6 @@
 from django.contrib.auth.decorators import user_passes_test
+from django.shortcuts import render
+
 def admin_test(user):
     if user.role == "Admin":
         return True
@@ -7,4 +9,4 @@ def admin_test(user):
     
 @user_passes_test(admin_test)
 def admin_view(request):
-    pass
+    return render(request, 'relationship_app/admin_view.html')
