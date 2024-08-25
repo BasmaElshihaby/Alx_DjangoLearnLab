@@ -29,7 +29,7 @@ class LibraryDetailView(DetailView):
         return context
 
 def register(request):
-    form = UserCreationForm(request.POST or None)
+    form = UserCreationForm()
     
     # Check if the form is valid when submitted
     if form.is_valid():
