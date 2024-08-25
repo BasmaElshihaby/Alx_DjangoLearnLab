@@ -10,4 +10,4 @@ def librarian_test(user):
     
 @user_passes_test(librarian_test)
 def librarian_view(request):
-    pass
+    return render(request, 'relationship_app/librarian_view.html')
