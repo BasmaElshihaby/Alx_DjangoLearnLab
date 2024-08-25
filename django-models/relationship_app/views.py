@@ -46,5 +46,36 @@ def register(request):
     return render(request, 'relationship_app/register.html', {'form': form})
 
 
+from django.contrib.auth.decorators import user_passes_test
+from django.shortcuts import render
+
+def admin_test(user):
+    if user.role == "Admin":
+        return True
+    else:
+        return False
+    
+@user_passes_test(admin_test)
+def admin_view(request):
+    return render(request, 'relationship_app/admin_view.html')
 
 
+def member_test(user):
+    if user.role == "Member":
+        return True
+    else:
+        return False
+    
+@user_passes_test(member_test)
+def member_view(request):
+    return render(request, 'relationship_app/member_view.html')
+
+def librarian_test(user):
+    if user.role == "Librarian":
+        return True
+    else:
+        return False
+    
+@user_passes_test(librarian_test)
+def librarian_view(request):
+    return render(request, 'relationship_app/librarian_view.html')
