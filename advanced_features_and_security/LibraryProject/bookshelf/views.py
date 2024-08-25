@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import permission_required
 
 # Create your views here.
@@ -8,6 +8,10 @@ def create_book(request):
 
 @permission_required('bookshelf.can_edit', raise_exception=True)
 def edit_book(request, pk):
+    form = True
+    if form.is_valid():
+            form.save()
+            return redirect('book_list')
     return render(request, 'book_form.html')
 
 
