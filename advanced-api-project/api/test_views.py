@@ -7,3 +7,4 @@ from .models import Book
 
 #"self", "class"
 #response.data
+#"self.client.login
