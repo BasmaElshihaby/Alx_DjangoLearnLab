@@ -5,7 +5,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from .models import Book
 from .serializers import BookSerializer
-# views.py
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
@@ -27,7 +27,7 @@ class BookDetailView(generics.RetrieveAPIView):
 class BookCreateView(generics.CreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-
+    permission_classes = [IsAuthenticated] 
     # Override perform_create to handle custom validation or additional logic
     def perform_create(self, serializer):
         # Custom validation (for example: ensure unique ISBN)
@@ -61,7 +61,7 @@ class BookCreateView(generics.CreateAPIView):
 class BookUpdateView(generics.UpdateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-
+    permission_classes = [IsAuthenticated]  # Only authenticated users can update
     # Override perform_update to handle custom validation
     def perform_update(self, serializer):
         # Custom validation (for example: ensure unique ISBN for updates)
@@ -96,3 +96,4 @@ class BookUpdateView(generics.UpdateAPIView):
 class BookDeleteView(generics.DestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [IsAuthenticated]  # Only authenticated users can delete
