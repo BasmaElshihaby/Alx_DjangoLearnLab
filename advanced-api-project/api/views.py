@@ -13,6 +13,7 @@ from django_filters import rest_framework
 
 #filters.OrderingFilter
 #filters.SearchFilter
+#"title", "author", "publication_year"
 # ListView: Retrieve all books (GET)
 class BookListView(generics.ListAPIView):
     queryset = Book.objects.all()
