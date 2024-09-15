@@ -15,3 +15,6 @@ class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
         fields = '__all__'  # Serialize all fields of the Book model
+    def get_related_books(self, obj):
+        related_books = obj.related_books.all()  # Get all related books
+        return BookSerializer(related_books, many=True).data 
