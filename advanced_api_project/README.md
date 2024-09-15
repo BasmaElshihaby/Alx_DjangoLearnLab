@@ -1,0 +1,1 @@
+In the “Advanced API Development with Django REST Framework” project, you will expand your skills in API development by working on advanced concepts such as custom serializers, custom views, filtering, searching, ordering, and testing.
