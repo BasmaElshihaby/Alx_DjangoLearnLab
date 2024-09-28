@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-# views.py
+# views.py BookViewSet Book.objects.all()
 from rest_framework import generics
 from .models import Book
 from .serializers import BookSerializer
