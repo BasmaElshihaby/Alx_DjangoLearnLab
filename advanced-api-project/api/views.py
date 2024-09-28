@@ -9,7 +9,11 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticate
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
+from django_filters import rest_framework
 
+#filters.OrderingFilter
+#filters.SearchFilter
+#"title", "author", "publication_year"
 # ListView: Retrieve all books (GET)
 class BookListView(generics.ListAPIView):
     queryset = Book.objects.all()
