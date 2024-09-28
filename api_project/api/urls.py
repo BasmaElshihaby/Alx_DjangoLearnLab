@@ -9,4 +9,4 @@ urlpatterns = [
     path('books/update/', BookUpdateView.as_view(), name='book-update'),
     path('books/delete/', BookDeleteView.as_view(), name='book-delete'),
 ]
-#BookList.as_view
+#BookList.as_view DefaultRouter()", "router.urls", "include"
