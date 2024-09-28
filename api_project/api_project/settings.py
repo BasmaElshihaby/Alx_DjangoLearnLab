@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-# Application definition rest_framework.authtoken
+# Application definition rest_framework.authtoken rest_framework.authentication.TokenAuthentication
 
 INSTALLED_APPS = [
     'rest_framework',
