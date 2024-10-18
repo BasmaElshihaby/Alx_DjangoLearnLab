@@ -1,12 +1,40 @@
 from django.db import models
 
-# Create your models here.
+
 class Author(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=64)
+    """
+    The Author model represents a book author with a name field.
+    """
+    # name: the name of the author
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
 
 class Book(models.Model):
-    id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=64)
+    """
+    The Book model represents a book with a title, publication year, and an associated author.
+    """
+    # title: the title of the book
+    title = models.CharField(max_length=255)
+    
+    # publication_year: the year the book was published
     publication_year = models.IntegerField()
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    
+    # author: the author of the book, establishing a foreign key relationship
+    author = models.ForeignKey(Author, related_name='books', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
+
+from django.db import models
+
+class Book(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.CharField(max_length=255)
+    published_date = models.DateField()
+
+    def __str__(self):
+        return self.title
+
