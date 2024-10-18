@@ -1,6 +1,7 @@
-from bookshelf.models import Book
-first_book = Book.objects.get(pk=1)
-first_book.delete()
+# Delete Operation
 
-Book.objects.all()
-# <QuerySet []>
+```python
+book = Book.objects.get(title="Nineteen Eighty-Four")
+book.delete()
+# Expected Output: Confirmation of deletion
+
